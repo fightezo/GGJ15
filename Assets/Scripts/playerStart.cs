@@ -7,7 +7,10 @@ public class PlayerStart : MonoBehaviour {
 	private Animator anim;
 	public bool gameStarted = false;
 	public float speed = 10f;
-	public float timeLeft = 30.0f;
+	public int id;
+	public float timeSet;
+//	public float timeLeft = 0f;
+
 //	void Awake(){
 //		anim = GetComponent<Animator>();
 //	}
@@ -18,17 +21,15 @@ public class PlayerStart : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameStarted = false;
+		if(id % 2 == 1){
+		gameStarted = true;
+			timeSet = 15f;
+		}
 	}
 
-	// Update is called once per frame
-	void Update () {
 
-//		Check whether time is up
-//		timeLeft -= Time.deltaTime;
-//		if(timeLeft < 0){
-//			Switch();
-//		}
+	// Update is called once per frame
+	void Update () {	
 
 		if(Input.GetButton("Forward")){
 			if((grounded == true) && (gameStarted == true)){
@@ -53,7 +54,13 @@ public class PlayerStart : MonoBehaviour {
 				rigidbody.MovePosition(rigidbody.position - Vector3.right * speed * Time.deltaTime);
 			}
 		}
+		timeSet -= Time.deltaTime;
+		if(timeSet < 0){
+			gameStarted = false;
+		}
+//		if(Collision.gameObject("door") == true){
+//			houseInteract = true;
+//			Application.LoadLevel("ItemBuy");
+//		}
 	}
-
 }
-
