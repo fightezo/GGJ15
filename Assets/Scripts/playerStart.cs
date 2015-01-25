@@ -2,29 +2,24 @@
 using System.Collections;
 
 public class PlayerStart : MonoBehaviour {
-	public bool houseInteract = false;
-	public bool grounded = false;
-	private Animator anim;
-	public bool gameStarted = false;
-	public float speed = 10f;
-	public int id;
-	public float timeSet;
-//	public float timeLeft = 0f;
-
-//	void Awake(){
-//		anim = GetComponent<Animator>();
-//	}
-
+	public bool grounded = false;		//whether the player is on the floor
+	public bool gameStarted = false;	//whether the prospective player has started his turn
+	public float speed = 10f;			//default speed of moving
+	public int id;						//player ids to separate between 1 and 2
+	public float timeSet;				//sets the time limit per person			
+	private bool gameStateEnd = false;	//check whether the game has ended
+	private float timeLeft;
+	
 	void OnCollisionEnter(Collision hit){
 		grounded = true;
 	}
-
+	
 	// Use this for initialization
 	void Start () {
-		if(id % 2 == 1){
-		gameStarted = true;
-			timeSet = 15f;
-		}
+		// Player1 goes first
+		if(id == 1){
+			gameStarted = true;
+			}
 	}
 
 
@@ -54,13 +49,6 @@ public class PlayerStart : MonoBehaviour {
 				rigidbody.MovePosition(rigidbody.position - Vector3.right * speed * Time.deltaTime);
 			}
 		}
-		timeSet -= Time.deltaTime;
-		if(timeSet < 0){
-			gameStarted = false;
-		}
-//		if(Collision.gameObject("door") == true){
-//			houseInteract = true;
-//			Application.LoadLevel("ItemBuy");
-//		}
 	}
+
 }

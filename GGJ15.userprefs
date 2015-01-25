@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerStart.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerStart.cs" Line="33" Column="3" />
+      <File FileName="Assets\Scripts\PlayerStart.cs" Line="30" Column="2" />
+      <File FileName="Assets\Scripts\DoorTrigger.js" Line="12" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
